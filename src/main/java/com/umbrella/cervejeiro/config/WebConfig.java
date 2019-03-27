@@ -41,6 +41,7 @@ import com.umbrella.cervejeiro.controller.ClientesController;
 import com.umbrella.cervejeiro.controller.converter.CidadeConverter;
 import com.umbrella.cervejeiro.controller.converter.EstadoConverter;
 import com.umbrella.cervejeiro.controller.converter.EstiloConverter;
+import com.umbrella.cervejeiro.controller.converter.GrupoConverter;
 import com.umbrella.cervejeiro.thymeleaf.BrewerDialect;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
@@ -111,6 +112,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		conversionService.addConverter(new EstiloConverter());
 		conversionService.addConverter(new CidadeConverter());
 		conversionService.addConverter(new EstadoConverter());
+		conversionService.addConverter(new GrupoConverter());
 		 	
 		NumberStyleFormatter bigDecimalFormatter = new NumberStyleFormatter("#,##0.00");
 		conversionService.addFormatterForFieldType(BigDecimal.class, bigDecimalFormatter); 
