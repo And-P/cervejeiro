@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.umbrella.cervejeiro.model.Usuario;
+import com.umbrella.cervejeiro.repository.Grupos;
 import com.umbrella.cervejeiro.service.CadastroUsuarioService;
 import com.umbrella.cervejeiro.service.exception.EmailUsuarioJaCadastradoException;
 
@@ -19,12 +20,20 @@ import com.umbrella.cervejeiro.service.exception.EmailUsuarioJaCadastradoExcepti
 @RequestMapping("/usuarios")
 public class UsuariosController {
 	
+	//Parametros/////////////////////////////////////////////////////////////////////////////////////////////
+	
 	@Autowired
 	private CadastroUsuarioService cadastroUsuarioService;
+	
+	@Autowired 
+	private Grupos grupos; 
 
+	//Funções//////////////////////////////////////////////////////////////////////////////////////////////
+	
 	@RequestMapping("/novo")
 	public ModelAndView novo(Usuario usuario) {
 		ModelAndView mv = new ModelAndView("usuario/CadastroUsuario");
+		mv.addObject("grupos", grupos.findAll());
 		return mv;
 	}
 	
