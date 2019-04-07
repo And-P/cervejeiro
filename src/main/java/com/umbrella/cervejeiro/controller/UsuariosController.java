@@ -14,6 +14,7 @@ import com.umbrella.cervejeiro.model.Usuario;
 import com.umbrella.cervejeiro.repository.Grupos;
 import com.umbrella.cervejeiro.service.CadastroUsuarioService;
 import com.umbrella.cervejeiro.service.exception.EmailUsuarioJaCadastradoException;
+import com.umbrella.cervejeiro.service.exception.SenhaObrigatoriaUsuarioException;
 
 
 @Controller
@@ -47,6 +48,9 @@ public class UsuariosController {
 			cadastroUsuarioService.salvar(usuario);
 		}catch(EmailUsuarioJaCadastradoException e) {
 			result.rejectValue("email", e.getMessage(), e.getMessage());
+			return novo(usuario);
+		}catch(SenhaObrigatoriaUsuarioException e) {
+			result.rejectValue("senha", e.getMessage(), e.getMessage());
 			return novo(usuario);
 		}
 		

@@ -8,6 +8,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.umbrella.cervejeiro.config.JPAConfig;
+import com.umbrella.cervejeiro.config.SecurityConfig;
 import com.umbrella.cervejeiro.config.ServiceConfig;
 import com.umbrella.cervejeiro.config.WebConfig;
 
@@ -17,7 +18,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	protected Class<?>[] getRootConfigClasses() {
 	//Faz as configurações raiz do projeto antes do getServletConfigClasses() - que já possui as configs web
 	//O que é feito aqui pode ser usado pelo getServletConfigClasses(), o contrário não. 
-		return new Class<?>[] {JPAConfig.class, ServiceConfig.class};
+		return new Class<?>[] {JPAConfig.class, ServiceConfig.class, SecurityConfig.class};
 	}
 
 	@Override
