@@ -22,8 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	UserDetailsService userDetailsService;
 	
-	/////////////////////////////////////////////////////////////////////////////////////////////////
-	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			
@@ -50,8 +48,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.anyRequest()
-			.authenticated()
+				.antMatchers("/cidades/nova").hasRole("CADASTRAR_CIDADE")
+				.antMatchers("/usuarios/**").hasRole("CADASTRAR_USUARIO")
+			.anyRequest().authenticated()
 			.and()
 			.formLogin()
 			.loginPage("/login")
