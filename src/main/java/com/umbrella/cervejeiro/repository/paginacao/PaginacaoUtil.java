@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PaginacaoUtil {
 	
-	public void preparar(Criteria criteria, Pageable pageable) {
+	public void preparar(Criteria criteria, Pageable pageable) {					
 		
 		//configuração para a paginação das pesquisas 
 		int paginaAtual = pageable.getPageNumber();
@@ -26,7 +26,6 @@ public class PaginacaoUtil {
 					Sort.Order order = sort.iterator().next();
 					String property = order.getProperty();
 					criteria.addOrder(order.isAscending() ? Order.asc(property) : Order.desc(property));
-					
 				}
 	}
 }

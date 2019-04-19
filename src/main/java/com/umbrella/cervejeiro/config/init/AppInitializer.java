@@ -4,7 +4,7 @@ import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 
-import org.springframework.web.filter.CharacterEncodingFilter;
+//import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.umbrella.cervejeiro.config.JPAConfig;
@@ -35,10 +35,16 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	
 	@Override
 	protected Filter[] getServletFilters() {
-		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+		
+		
+		
+		//Removido após adicionarmos o Spring Security (19.10) - não resolve mais a acentução
+		/*CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 			characterEncodingFilter.setEncoding("UTF-8");
 			characterEncodingFilter.setForceEncoding(true);
-			return new Filter[] {characterEncodingFilter};
+			return new Filter[] {characterEncodingFilter};*/
+		
+		return new Filter[] {};
 	}
 	
 	@Override

@@ -15,7 +15,7 @@ import com.umbrella.cervejeiro.thymeleaf.processor.PaginacaoElementTagProcessor;
 public class BrewerDialect extends AbstractProcessorDialect {
 
 	public BrewerDialect() {
-		super("Nome Brewer", "brewer", StandardDialect.PROCESSOR_PRECEDENCE);
+		super("Umbrella Brewer", "brewer", StandardDialect.PROCESSOR_PRECEDENCE);
 	}
 	
 	@Override
