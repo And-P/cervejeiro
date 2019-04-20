@@ -1,5 +1,6 @@
 package com.umbrella.cervejeiro.config;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -73,6 +74,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.expiredUrl("/login")*/
 	}
 	
+=======
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+public class SecurityConfig {
+
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

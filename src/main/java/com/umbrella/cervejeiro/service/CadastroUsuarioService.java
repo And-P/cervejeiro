@@ -22,21 +22,31 @@ public class CadastroUsuarioService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+<<<<<<< HEAD
 	//////////////////////////////////////////////////////////////////////////////////////
 	
+=======
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
 	@Transactional
 	public void salvar(Usuario usuario) {
 		Optional<Usuario> usuarioExistente = usuarios.findByEmail(usuario.getEmail());
-		
 		if (usuarioExistente.isPresent()) {
 			throw new EmailUsuarioJaCadastradoException("E-mail já cadastrado");
 		}
 		
+<<<<<<< HEAD
 		if(usuario.isNovo() && StringUtils.isEmpty(usuario.getSenha())) {
 			throw new SenhaObrigatoriaUsuarioException("Senha é obrigatória para novo usuário");
 		}
 		
 		if(usuario.isNovo()) {
+=======
+		if (usuario.isNovo() && StringUtils.isEmpty(usuario.getSenha())) {
+			throw new SenhaObrigatoriaUsuarioException("Senha é obrigatória para novo usuário");
+		}
+		
+		if (usuario.isNovo()) {
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
 			usuario.setSenha(this.passwordEncoder.encode(usuario.getSenha()));
 			usuario.setConfirmacaoSenha(usuario.getSenha());
 		}

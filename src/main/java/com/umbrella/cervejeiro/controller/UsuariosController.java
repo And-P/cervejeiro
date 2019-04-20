@@ -26,7 +26,11 @@ public class UsuariosController {
 	@Autowired
 	private CadastroUsuarioService cadastroUsuarioService;
 	
+<<<<<<< HEAD
 	@Autowired 
+=======
+	@Autowired
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
 	private Grupos grupos; 
 
 	//Funções//////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +38,11 @@ public class UsuariosController {
 	@RequestMapping("/novo")
 	public ModelAndView novo(Usuario usuario) {
 		ModelAndView mv = new ModelAndView("usuario/CadastroUsuario");
+<<<<<<< HEAD
 		mv.addObject("grupos", grupos.findAll());
+=======
+			mv.addObject("grupos", grupos.findAll());
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
 		return mv;
 	}
 	

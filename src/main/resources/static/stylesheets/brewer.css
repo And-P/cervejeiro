@@ -138,6 +138,20 @@
 	text-align: right;
 }
 
+<<<<<<< HEAD
+=======
+/* Colunas - Pesquisa de cidades */ 
+.table-cidades-col-nome {
+	width: 140px;
+	text-align: right;
+}
+
+.table-cidades-col-estado {
+	width: 140px;
+	text-align: right;
+}
+
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
 /*
 ######################################
 # CUSTOMIZAÇÃO DE COMPONENTES
@@ -147,4 +161,8 @@
 .checkbox input[type="checkbox"]:checked + input + label::after {
     font-family: 'FontAwesome';
     content: "\f00c"; 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8ff219625608587fecc7d009552241817f9d8816
