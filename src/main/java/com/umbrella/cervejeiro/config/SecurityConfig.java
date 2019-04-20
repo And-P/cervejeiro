@@ -26,8 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			
-		auth.userDetailsService(userDetailsService)
-			.passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 		
 		//Authenticação feita em memória para facilitar configurações iniciais do security
 		/*auth.inMemoryAuthentication()
@@ -51,21 +50,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/cidades/nova").hasRole("CADASTRAR_CIDADE")
 				.antMatchers("/usuarios/**").hasRole("CADASTRAR_USUARIO")
-			.anyRequest().authenticated()
+				.anyRequest().authenticated()
+				//.anyRequest().denyAll()
 			.and()
-			.formLogin()
-			.loginPage("/login")
-			.permitAll()
+				.formLogin()
+				.loginPage("/login")
+				.permitAll()
 			.and()
-			.logout()
-			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.and()
-			.exceptionHandling()
-			.accessDeniedPage("/403")
+				.exceptionHandling()
+				.accessDeniedPage("/403")
 			.and()
-			.sessionManagement()
-			.invalidSessionUrl("/login");
-			//adiciona limite de sessões permitidas por usuário
+				.sessionManagement()
+				.invalidSessionUrl("/login");
+			
+		//adiciona limite de sessões permitidas por usuário
 			/*.and()
 			.sessionManagement()
 			.maximumSessions(1)
